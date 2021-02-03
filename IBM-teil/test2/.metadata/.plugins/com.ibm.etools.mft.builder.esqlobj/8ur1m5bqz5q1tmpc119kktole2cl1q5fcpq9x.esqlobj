@@ -1,0 +1,25 @@
+CREATE COMPUTE MODULE adminquery
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE var REFERENCE TO Environment.Variables;
+		CREATE FIELD OutputRoot.JSON.Data IDENTITY(JSON.Array)Data;
+		SET var.query[] = PASSTHRU('SELECT * FROM RESTTABLE11 ORDER BY BESTELL_ID DESC');
+		DECLARE count_array INT CARDINALITY(var.query[]);
+		
+		DECLARE J INTEGER;
+		SET J = 1;
+		WHILE J <= count_array DO
+				
+				SET OutputRoot.JSON.Data.Item[J].BESTELL_ID = var.query[J].BESTELL_ID;
+				SET OutputRoot.JSON.Data.Item[J].PRODUCT_ID = var.query[J].PRODUCT_ID;
+         		SET OutputRoot.JSON.Data.Item[J].PRISE = var.query[J].PRISE;
+         		SET OutputRoot.JSON.Data.Item[J].NAME_RESTURANT = var.query[J].NAME_RESTURANT;
+         	 	SET OutputRoot.JSON.Data.Item[J].TABLE_ID = var.query[J].TABLE_ID;
+         		SET OutputRoot.JSON.Data.Item[J].ZEIT = var.query[J].ZEIT;
+         		SET J = J + 1;
+         			
+		END WHILE;				
+		RETURN TRUE;
+	END;
+
+END MODULE;

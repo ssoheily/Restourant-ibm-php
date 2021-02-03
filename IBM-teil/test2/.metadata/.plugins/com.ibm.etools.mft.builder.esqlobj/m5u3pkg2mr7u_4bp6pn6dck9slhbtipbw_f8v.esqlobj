@@ -1,0 +1,26 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		DECLARE var REFERENCE TO Environment.Variables;
+		CREATE FIELD OutputRoot.JSON.Data IDENTITY(JSON.Array)Data;
+		SET var.query[] = (SELECT * FROM Database.RESTCHAR1 );
+		-- DECLARE count_array INT CARDINALITY(var.query[]);
+		-- SET var.table[] = PASSTHRU('SELECT DISTINCT TABLE_ID FROM RESTCHAR1 ORDER BY TABLE_ID ASC');
+		DECLARE J INTEGER;
+		SET J = 1;
+		WHILE J <= 10 DO
+				SET J = J + 1;
+				-- var.table[I].TABLE_ID
+				--  SET OutputRoot.JSON.Data.Item[J].BESTELL_ID = InputRoot.Environment.query[J].BESTELL_ID;
+				-- SET OutputRoot.JSON.Data.Item[J].BESTELL_ID = var.[J].BESTELL_ID;	
+				SET OutputRoot.JSON.Data.Item[1].PRODUCT_ID = var.query[1].BESTELL_ID;
+				SET OutputRoot.JSON.Data.Item[J].PRODUCT_ID = var.query[J].PRODUCT_ID;
+         		SET OutputRoot.JSON.Data.Item[J].PRISE = var.query[J].PRISE;
+         		SET OutputRoot.JSON.Data.Item[J].NAME_RESTURANT = var.query[J].NAME_RESTURANT;
+         	 	SET OutputRoot.JSON.Data.Item[J].TABLE_ID = var.query[J].TABLE_ID;
+         		SET OutputRoot.JSON.Data.Item[J].ZEIT = var.query[J].ZEIT;
+         			
+		END WHILE;
+				
+		RETURN TRUE;
+	END;
+

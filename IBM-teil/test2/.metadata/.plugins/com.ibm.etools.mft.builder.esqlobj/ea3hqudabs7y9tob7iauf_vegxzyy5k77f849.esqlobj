@@ -1,0 +1,155 @@
+CREATE COMPUTE MODULE Bestellung
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		CALL CopyEntireMessage(); 
+		
+		-- DECLARE CacheQueueTable SHARED ROW; 
+		-- SET CacheQueueTable = OutputRoot.HTTPResponsHeader;
+		-- CALL CopyEntireMessage(); 
+			-- DECLARE RequestCounter SHARED CHAR; 	
+
+		
+		
+		
+		DECLARE refVar REFERENCE TO Environment.Variables;
+		DECLARE refBody REFERENCE TO OutputBody.Data;
+		
+        DECLARE chProduct_id CHAR;
+        DECLARE chTable_id CHAR;       
+        DECLARE chEmployee CHAR;
+        DECLARE PRICE CHAR;
+       --  DECLARE COMPARE CHAR ;
+        DECLARE chKunde_name CHAR ;
+        DECLARE chStatus CHAR '' ;
+        
+       --  DECLARE zeit1 INTEGER ; -- timestamp zeit von php 
+        DECLARE tsZeitdatabase TIMESTAMP ;-- database zeit
+       --  DECLARE zeitphp TIMESTAMP ;
+        
+		            
+        DECLARE chBeschreibung CHAR; 
+        DECLARE ch_leer_table CHAR;
+        DECLARE concat_string1 CHAR;
+        DECLARE concat_string2 CHAR ''; 
+        DECLARE chFeedback  CHAR;
+        DECLARE comparetime  INTEGER;
+        DECLARE refData REFERENCE TO InputBody.Data;
+        SET chProduct_id = refData.product_id; 
+        SET chProduct_id  = SUBSTRING(chProduct_id  AFTER '#');
+        SET OutputRoot.JSON.Data.product_id = chProduct_id;
+        SET chTable_id = refData.Table_id;
+        SET chEmployee = refData.Employee;
+        SET chKunde_name = refData.Kunde_name;
+        SET OutputBody.Data.Feedback = refData.chFeedback ;
+        
+       
+	    
+       	SET OutputBody.Data.Feedback VALUE  = NULL;
+        SET Feedback = 'Thank you for feedback ' ;
+        --  write header response 
+        SET OutputRoot.HTTPReplyHeader."Content-Type" = 'text/json';
+       
+        -- condition: the table is occupied (Y/N)?
+         
+        SET refVar.query[] = (SELECT * FROM Database.RESTTABLE11 AS T WHERE T.TABLE_ID = chTable_id );
+      --   SET COMPARE = EXISTS( refVar.query[]);
+        
+        IF EXISTS( refVar.query[]) THEN 
+        	
+         -- Compare database mit IBM      
+        	SET refVar.time[] = PASSTHRU ('SELECT MAX(ZEIT) FROM RESTTABLE11 WHERE TABLE_ID = '|| chTable_id || 'CAST(CURRENT_TIMESTAMP - ZEIT AS INTEGER) > 300');
+			SET tsZeitdatabase = refVar.time.[1];
+			
+			DECLARE MyTimeStamp TIMESTAMP;
+			SET MyTimeStamp =  tsZeitdatabase.TIMESTAMP ; -- TIMESTAMP '1970-01-01 00:00:00'; //convert to nummeric TIMESTAMP
+			DECLARE eventTimeStamp INTERVAL;
+			
+			SET eventTimeStamp = (CURRENT_TIMESTAMP - MyTimeStamp) SECOND;
+			SET comparetime = CAST(eventTimeStamp AS INTEGER);
+
+			IF (comparetime < 300) THEN
+	 
+				SET chBeschreibung='the table is occupied, please order the new table,you can see free the number table:  ';
+				SET OutputBody.Data.Beschreibung = chBeschreibung;
+				-- write blank table 
+				SET refVar.table[] = PASSTHRU('SELECT DISTINCT TABLE_ID FROM RESTTABLE11 ORDER BY TABLE_ID ASC');
+				
+				DECLARE count_array INT CARDINALITY(refVar.table[]);
+				DECLARE I INT 1;
+				
+				WHILE I <= count_array DO
+					-- SET X = refVar.table[I].chTable_id;
+					IF refVar.table[I].TABLE_ID <> chTable_id THEN
+						SET concat_string1 = refVar.table[I].TABLE_ID;
+						 SET concat_string2 = concat_string2 || ' , ' || concat_string1;
+					END IF;
+					SET I = I + 1;
+				END WHILE;			
+				--// 
+				SET ch_leer_table = concat_string;
+				SET OutputRoot.JSON.Data.leer_table = ch_leer_table;
+				SET OutputRoot.JSON.Data.Kunde_name = chKunde_name;
+				-- do other option equal null
+				-- SET OutputRoot.JSON.Data.amount = PRICE; 		
+				SET OutputRoot.JSON.Data.status = 'busy';
+				SET OutputRoot.JSON.Data.amount VALUE  = NULL;
+				SET OutputRoot.JSON.Data.amount VALUE  = NULL;
+				SET OutputRoot.JSON.Data.product_id VALUE  = NULL;
+				SET OutputRoot.JSON.Data.employee VALUE  = NULL;
+	         	SET OutputRoot.JSON.Data.timestamp =  InputRoot.JSON.Data.timestamp;
+	         	SET OutputRoot.JSON.Data.timestamp = NULL;
+			ELSE
+				-- create prise
+       			SET refVar.product[] = (SELECT T.PRODUCT_PRICE FROM Database.Products AS T WHERE T.ID = chProduct_id);
+       			SET PRICE = refVar.product.[1];
+				
+				-- 300 is time reserve     	 	        	
+				INSERT INTO Database.RESTTABLE11(PRODUCT_ID,PRISE,NAME_RESTURANT,TABLE_ID)
+				VALUES(chProduct_id ,PRICE ,chEmployee,chTable_id); 
+				       	 
+				SET OutputRoot.JSON.Data.price = PRICE;
+				SET OutputRoot.JSON.Data.status = 'free';
+				SET OutputRoot.JSON.Data.kunde_name = chKunde_name;
+				
+				SET chBeschreibung='Confirmation of your order. ';
+				SET OutputRoot.JSON.Data.beschreibung = chBeschreibung;
+				SET ch_leer_table = 'Your table is reserved ';
+				
+				SET OutputRoot.JSON.Data.leer_table = ch_leer_table;	
+			END IF;
+        	ELSE
+        		SET refVar.product[] = (SELECT T.PRODUCT_PRICE FROM Database.Products AS T WHERE T.ID = chProduct_id);
+       			SET PRICE = refVar.product.[1];    
+       			
+				-- 300 is time reserve     	 	        	
+				INSERT INTO Database.RESTTABLE11(PRODUCT_ID,PRISE,NAME_RESTURANT,TABLE_ID)
+				VALUES(chProduct_id ,PRICE ,chEmployee, chTable_id); 
+				
+				SET OutputRoot.JSON.Data.price = PRICE;
+				SET OutputRoot.JSON.Data.status = 'free';
+				SET OutputRoot.JSON.Data.kunde_name = chKunde_name;
+				SET chBeschreibung='Confirmation of your order. ';
+				SET OutputRoot.JSON.Data.Beschreibung = chBeschreibung;
+				SET ch_leer_table = 'Your table is reserved ';
+				SET OutputRoot.JSON.Data.leer_table = ch_leer_table;
+         	
+         END IF;	
+        
+         
+		RETURN TRUE;
+	END;
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

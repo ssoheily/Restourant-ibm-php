@@ -1,0 +1,172 @@
+!SESSION 2020-08-15 17:30:00.872 -----------------------------------------------
+eclipse.buildId=4.2.2.M20140918-1444
+java.fullversion=8.0.5.20 - pwa6480sr5fp20-20180802_01(SR5 FP20)
+JRE 1.8.0 Windows 10 amd64-64-Bit Compressed References 20180731_393394 (JIT enabled, AOT enabled)
+OpenJ9   - bd23af8
+OMR      - ca1411c
+IBM      - 98805ca
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+
+!ENTRY org.eclipse.emf.ecore 2 0 2020-08-15 17:30:29.162
+!MESSAGE Both 'com.ibm.etools.javaee.core' and 'com.ibm.etools.mft.service.model' register an extension parser for 'application'
+
+!ENTRY org.eclipse.ui 2 2 2020-08-15 17:30:32.807
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.adapter.c, page: com.ibm.adapter.c.ui.preferencepage.CPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-08-15 17:30:32.811
+!MESSAGE Invalid preference category path: com.ibm.debug.breakpoints.common.pref.tracepoint (bundle: com.ibm.debug.wsa, page: com.ibm.debug.wsa.WSATracepointPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-08-15 17:30:32.812
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.etools.cobol.preference.ui, page: com.ibm.etools.cobol.preference.ui.preferencepage.CobolPreferencePage)
+
+!ENTRY org.eclipse.osgi 2 1 2020-08-15 17:30:33.926
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogTitle in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2020-08-15 17:30:33.927
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogDescription in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-08-15 17:30:36.637
+!MESSAGE 
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-08-15 17:30:36.637
+!MESSAGE C:\Program Files\IBM\IIB\10.0.0.15\tools>mqsifindmqpath
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-08-15 17:30:37.324
+!MESSAGE BIP8071I: Successful command completion. C:\Program Files\IBM\MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-08-15 17:30:37.325
+!MESSAGE MQ Install location found:C:/Program Files/IBM/MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-08-15 17:30:37.326
+!MESSAGE 
+!SESSION 2020-10-10 17:51:43.771 -----------------------------------------------
+eclipse.buildId=4.2.2.M20140918-1444
+java.fullversion=8.0.5.20 - pwa6480sr5fp20-20180802_01(SR5 FP20)
+JRE 1.8.0 Windows 10 amd64-64-Bit Compressed References 20180731_393394 (JIT enabled, AOT enabled)
+OpenJ9   - bd23af8
+OMR      - ca1411c
+IBM      - 98805ca
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+
+!ENTRY org.eclipse.emf.ecore 2 0 2020-10-10 17:52:35.685
+!MESSAGE Both 'com.ibm.etools.javaee.core' and 'com.ibm.etools.mft.service.model' register an extension parser for 'application'
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:52:38.578
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.adapter.c, page: com.ibm.adapter.c.ui.preferencepage.CPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:52:38.582
+!MESSAGE Invalid preference category path: com.ibm.debug.breakpoints.common.pref.tracepoint (bundle: com.ibm.debug.wsa, page: com.ibm.debug.wsa.WSATracepointPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:52:38.583
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.etools.cobol.preference.ui, page: com.ibm.etools.cobol.preference.ui.preferencepage.CobolPreferencePage)
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:52:39.546
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogTitle in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:52:39.547
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogDescription in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:52:41.274
+!MESSAGE 
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:52:41.278
+!MESSAGE C:\Program Files\IBM\IIB\10.0.0.15\tools>mqsifindmqpath
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:52:41.863
+!MESSAGE BIP8071I: Successful command completion. C:\Program Files\IBM\MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:52:41.864
+!MESSAGE MQ Install location found:C:/Program Files/IBM/MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:52:41.865
+!MESSAGE 
+!SESSION 2020-10-10 17:53:00.687 -----------------------------------------------
+eclipse.buildId=4.2.2.M20140918-1444
+java.fullversion=8.0.5.20 - pwa6480sr5fp20-20180802_01(SR5 FP20)
+JRE 1.8.0 Windows 10 amd64-64-Bit Compressed References 20180731_393394 (JIT enabled, AOT enabled)
+OpenJ9   - bd23af8
+OMR      - ca1411c
+IBM      - 98805ca
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+
+!ENTRY org.eclipse.emf.ecore 2 0 2020-10-10 17:53:03.758
+!MESSAGE Both 'com.ibm.etools.javaee.core' and 'com.ibm.etools.mft.service.model' register an extension parser for 'application'
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:53:06.515
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.adapter.c, page: com.ibm.adapter.c.ui.preferencepage.CPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:53:06.519
+!MESSAGE Invalid preference category path: com.ibm.debug.breakpoints.common.pref.tracepoint (bundle: com.ibm.debug.wsa, page: com.ibm.debug.wsa.WSATracepointPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:53:06.519
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.etools.cobol.preference.ui, page: com.ibm.etools.cobol.preference.ui.preferencepage.CobolPreferencePage)
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:53:07.419
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogTitle in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:53:07.420
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogDescription in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:53:09.052
+!MESSAGE 
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:53:09.053
+!MESSAGE C:\Program Files\IBM\IIB\10.0.0.15\tools>mqsifindmqpath
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:53:09.584
+!MESSAGE BIP8071I: Successful command completion. C:\Program Files\IBM\MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:53:09.584
+!MESSAGE MQ Install location found:C:/Program Files/IBM/MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:53:09.585
+!MESSAGE 
+!SESSION 2020-10-10 17:54:48.927 -----------------------------------------------
+eclipse.buildId=4.2.2.M20140918-1444
+java.fullversion=8.0.5.20 - pwa6480sr5fp20-20180802_01(SR5 FP20)
+JRE 1.8.0 Windows 10 amd64-64-Bit Compressed References 20180731_393394 (JIT enabled, AOT enabled)
+OpenJ9   - bd23af8
+OMR      - ca1411c
+IBM      - 98805ca
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -showlocation -product com.ibm.etools.msgbroker.tooling.ide tools_auto -showlocation -product com.ibm.etools.msgbroker.tooling.ide
+
+!ENTRY org.eclipse.emf.ecore 2 0 2020-10-10 17:54:53.015
+!MESSAGE Both 'com.ibm.etools.javaee.core' and 'com.ibm.etools.mft.service.model' register an extension parser for 'application'
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:54:56.532
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.adapter.c, page: com.ibm.adapter.c.ui.preferencepage.CPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:54:56.537
+!MESSAGE Invalid preference category path: com.ibm.debug.breakpoints.common.pref.tracepoint (bundle: com.ibm.debug.wsa, page: com.ibm.debug.wsa.WSATracepointPreferencePage)
+
+!ENTRY org.eclipse.ui 2 2 2020-10-10 17:54:56.538
+!MESSAGE Invalid preference category path: com.ibm.importer.preferences (bundle: com.ibm.etools.cobol.preference.ui, page: com.ibm.etools.cobol.preference.ui.preferencepage.CobolPreferencePage)
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:54:57.894
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogTitle in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY org.eclipse.osgi 2 1 2020-10-10 17:54:57.895
+!MESSAGE NLS missing message: overrideSavedTrustStorePasswordDialogDescription in: com.ibm.etools.mft.broker.runtime.messages
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:55:02.271
+!MESSAGE 
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:55:02.272
+!MESSAGE C:\Program Files\IBM\IIB\10.0.0.15\tools>mqsifindmqpath
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:55:03.523
+!MESSAGE BIP8071I: Successful command completion. C:\Program Files\IBM\MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:55:03.524
+!MESSAGE MQ Install location found:C:/Program Files/IBM/MQ
+
+!ENTRY com.ibm.mq.runtime 1 0 2020-10-10 17:55:03.524
+!MESSAGE 

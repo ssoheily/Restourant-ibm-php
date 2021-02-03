@@ -1,0 +1,23 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		CREATE FIELD OutputRoot.JSON.Data IDENTITY(JSON.Array)Data;
+		SET var.query[] = (SELECT * FROM Database.RESTCHAR1 );
+		DECLARE count_array INT CARDINALITY(var.query[]);
+		-- SET var.table[] = PASSTHRU('SELECT DISTINCT TABLE_ID FROM RESTCHAR1 ORDER BY TABLE_ID ASC');
+		DECLARE J INTEGER 1;
+		DECLARE username CHAR;
+		
+		WHILE J < count_array DO
+				SET J = J + 1;
+				SET OutputRoot.JSON.Data.Item[J].BESTELL_ID = var.query[].BESTELL_ID;	
+				SET OutputRoot.JSON.Data.Item[J].PRODUCT_ID = var.query[].PRODUCT_ID;
+         		SET OutputRoot.JSON.Data.Item[J].PRISE = var.query[].PRISE;
+         		SET OutputRoot.JSON.Data.Item[J].NAME_RESTURANT = var.query[].NAME_RESTURANT;
+         	 	SET OutputRoot.JSON.Data.Item[J].TABLE_ID = var.query[].TABLE_ID;
+         		SET OutputRoot.JSON.Data.Item[J].ZEIT = var.query[].ZEIT;
+         		
+		END WHILE;
+				
+		RETURN TRUE;
+	END;
+

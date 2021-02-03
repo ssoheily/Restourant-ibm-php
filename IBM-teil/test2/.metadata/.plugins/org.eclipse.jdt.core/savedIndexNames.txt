@@ -1,0 +1,1 @@
+INDEX VERSION 1.126+C:\workplace\RESTORANTSERVICEPproject-0.24.2020\ganzprojrct\IBM-teil\test2\.metadata\.plugins\org.eclipse.jdt.core

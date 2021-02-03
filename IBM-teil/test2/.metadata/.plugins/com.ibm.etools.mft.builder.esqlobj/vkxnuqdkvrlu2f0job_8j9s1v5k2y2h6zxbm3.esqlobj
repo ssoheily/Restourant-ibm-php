@@ -1,0 +1,38 @@
+CREATE COMPUTE MODULE MSGResturant_Failure
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		-- SET OutputRoot.HTTPResponseHeader  = 'http://127.0.0.1/dashboard/news/fetch.php';
+		-- SET Environment.Destination.HTTP.RequestURL = 'http://127.0.0.1/dashboard/news/fetch.php';
+		  --  X-Original-HTTP-Command	POST http://127.0.0.1:7800/service/restaurant HTTP/1.1	
+		-- CALL CopyMessageHeaders();
+		-- SET OutputRoot.HTTPRequestHeader."Content-Type" = 'text/xml';
+		-- SET OutputRoot.XMLNSC = InputRoot.XMLNSC;
+		 -- SET OutputRoot.XMLNSC.HTTPResponseHeader.X = 'POST http://127.0.0.1:7800/service/restaurant HTTP/1.1';
+		-- SET OutputRoot.XMLNSC.HTTPResponseHeader.X-Original-HTTP-Command = 'POST http://127.0.0.1:7800/service/restaurant HTTP/1.1';
+		SET OutputRoot.HTTPReplyHeader."Content-Type" = 'text/json';
+		DECLARE beschreibung CHAR;	
+		DECLARE error INTEGER;	
+		
+		SET beschreibung = 'Error: Database is not available. Please try again later!'; 
+		SET OutputRoot.JSON.Data.beschreibung = beschreibung;
+		SET error = 1;
+		SET OutputRoot.JSON.Data.error = error;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

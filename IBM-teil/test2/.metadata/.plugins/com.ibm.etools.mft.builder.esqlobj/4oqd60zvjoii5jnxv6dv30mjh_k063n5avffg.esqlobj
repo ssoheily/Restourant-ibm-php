@@ -1,0 +1,6 @@
+/*EATE FUNCTION Main() RETURNS BOOLE*/
+	BEGIN
+		SET var.query[] = (SELECT * FROM Database.RESTCHAR1 AS T WHERE T.TABLE_ID =table_id AND  T.ZEIT > zeit1  );
+		RETURN TRUE;
+	END;
+
